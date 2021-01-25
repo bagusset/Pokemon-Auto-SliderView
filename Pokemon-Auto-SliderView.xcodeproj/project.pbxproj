@@ -17,6 +17,7 @@
 		0F292CAC25BE969B00E69940 /* Pokemon_Auto_SliderViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F292CAB25BE969B00E69940 /* Pokemon_Auto_SliderViewUITests.swift */; };
 		0F292CC025BEA48D00E69940 /* PokemonCardSlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F292CBF25BEA48D00E69940 /* PokemonCardSlideCell.swift */; };
 		0F292CC525BEA75D00E69940 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F292CC425BEA75D00E69940 /* DataModel.swift */; };
+		0F292CCA25BEAC6300E69940 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F292CC925BEAC6300E69940 /* ApiServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		0F292CAD25BE969B00E69940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F292CBF25BEA48D00E69940 /* PokemonCardSlideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCardSlideCell.swift; sourceTree = "<group>"; };
 		0F292CC425BEA75D00E69940 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		0F292CC925BEAC6300E69940 /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				0F292C9425BE969B00E69940 /* LaunchScreen.storyboard */,
 				0F292C9725BE969B00E69940 /* Info.plist */,
 				0F292CC425BEA75D00E69940 /* DataModel.swift */,
+				0F292CC925BEAC6300E69940 /* ApiServices.swift */,
 			);
 			path = "Pokemon-Auto-SliderView";
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F292CCA25BEAC6300E69940 /* ApiServices.swift in Sources */,
 				0F292CC525BEA75D00E69940 /* DataModel.swift in Sources */,
 				0F292C8E25BE969900E69940 /* PokemonCardSlideVC.swift in Sources */,
 				0F292CC025BEA48D00E69940 /* PokemonCardSlideCell.swift in Sources */,
