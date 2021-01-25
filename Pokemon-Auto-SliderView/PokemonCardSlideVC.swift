@@ -7,8 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemonCardSlideVC: UIViewController {
 
+    @IBOutlet weak var pokemonCardSlideCollectionView: UICollectionView!
+    @IBOutlet weak var slideCardPageControl: UIPageControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pokemon Card SlideVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pokemon_Auto_SliderView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PokemonCardSlideVC" customModule="Pokemon_Auto_SliderView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6es-N9-8fh">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6es-N9-8fh" customClass="PokemonCardSlideCell" customModule="Pokemon_Auto_SliderView" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="368" height="549"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tRQ-vw-Y9Z">
@@ -94,6 +94,12 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdC-k7-nSI">
+                                                            <rect key="frame" x="126" y="383.5" width="11" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flm-N6-Fas">
                                                             <rect key="frame" x="27" y="419.5" width="49" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -144,12 +150,6 @@
                                                         </progressView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uz-WL-fYj">
                                                             <rect key="frame" x="328" y="461" width="16" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdC-k7-nSI">
-                                                            <rect key="frame" x="126" y="383.5" width="11" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -211,6 +211,20 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="368" height="549"/>
+                                        <connections>
+                                            <outlet property="atkNumberLabel" destination="RfQ-Xi-D8r" id="2g8-I9-iNH"/>
+                                            <outlet property="atkProgress" destination="Ese-rH-fLJ" id="qBb-y8-mOi"/>
+                                            <outlet property="descLabel" destination="mXF-Nq-mz5" id="3da-nm-1vQ"/>
+                                            <outlet property="dfnsNumberLabel" destination="kHe-nD-SNH" id="uei-XX-PBO"/>
+                                            <outlet property="dfnsProgress" destination="Q4E-qM-lCu" id="gOb-p8-hCE"/>
+                                            <outlet property="heightLabel" destination="ZdC-k7-nSI" id="mS4-4X-i6M"/>
+                                            <outlet property="idView" destination="MOl-9R-Pb7" id="kSU-DN-mq9"/>
+                                            <outlet property="imageView" destination="RZw-BA-YcE" id="fXR-TK-2AX"/>
+                                            <outlet property="imageViewCard" destination="lwX-ZQ-xIJ" id="HvE-1s-S4c"/>
+                                            <outlet property="mainBackground" destination="es2-kh-FlM" id="ZSh-FP-J0W"/>
+                                            <outlet property="nameLabel" destination="S5n-Fz-iRp" id="ZdC-pN-Jx8"/>
+                                            <outlet property="weightLabel" destination="3D2-17-hTA" id="41U-Vh-Dha"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -239,6 +253,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="huM-jg-hHx" secondAttribute="trailing" constant="148" id="yTf-0F-eed"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pokemonCardSlideCollectionView" destination="vTy-6q-muW" id="TK6-jk-fX3"/>
+                        <outlet property="slideCardPageControl" destination="wuQ-0C-yVb" id="I1K-U6-tj8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
