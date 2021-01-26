@@ -2,17 +2,18 @@
 //  ApiServices.swift
 //  Pokemon-Auto-SliderView
 //
-//  Created by Bagus setiawan on 25/01/21.
+//  Created by Bagus setiawan on 26/01/21.
 //
-
 import UIKit
+
 
 class ApiServices{
     
     static let shared = ApiServices()
-    var urlString = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
+    let urlString = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
     
-    func fecthDataPokemon( completion : @escaping ([DataModel]) -> ()) {
+
+    func fecthDataPokemon(completion: @escaping ([DataModel]) -> ()) {
         var pokemonDataArray = [DataModel]()
         
         guard let url = URL(string: urlString) else {return}
@@ -20,13 +21,14 @@ class ApiServices{
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if let error = error {
-                print("failed fecth data \(error.localizedDescription)")
+                print("Failed fecth data \(error.localizedDescription)")
             }
             
             guard let data = data else {return}
             
             do {
-                guard let resultArray = try JSONSerialization.jsonObject(with: data, options: []) as? [AnyObject] else {return}
+                guard let resultArray = try JSONSerialization.jsonObject(with: data, options: []) as?
+                [AnyObject] else {return}
                 
                 for (key, result) in resultArray.enumerated() {
                     if let dictionary = result as? [String : AnyObject] {
@@ -34,7 +36,7 @@ class ApiServices{
                         
                         guard let imageUrl = pokemon.imageUrl else {return}
                         
-                        self.fecthDataImage(withUrlString: imageUrl, completiion: {(image) in
+                        self.fecthDataImage(withUrlString: imageUrl, completion: { (image) in
                             pokemon.image = image
                             pokemonDataArray.append(pokemon)
                             
@@ -45,24 +47,30 @@ class ApiServices{
                         })
                     }
                 }
+               
             } catch let error{
-                print("failed to create json", error.localizedDescription)
+                print("Failed to create json", error.localizedDescription)
             }
         }.resume()
     }
     
-    private func fecthDataImage(withUrlString urlSting : String, completiion : @escaping(UIImage) -> ()) {
+    private func fecthDataImage(withUrlString urlString : String, completion : @escaping(UIImage) -> ()) {
         
         guard let url = URL(string: urlString) else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
             if error != nil {
-                print("failed fecth data image")
+                print("Failed to fecth image data")
                 return
             }
+            
             guard let data = data else {return}
             guard let image = UIImage(data: data) else {return}
-            completiion(image)
-        }.resume()
+            completion(image)
+            
+        } .resume()
     }
+    
 }
+

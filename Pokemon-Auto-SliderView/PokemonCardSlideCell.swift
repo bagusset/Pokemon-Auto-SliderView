@@ -9,6 +9,9 @@ import UIKit
 
 class PokemonCardSlideCell: UICollectionViewCell {
     
+    var getData : DataModel?
+    
+    @IBOutlet weak var idNumber: UILabel!
     @IBOutlet weak var mainBackground: UIView!
     @IBOutlet weak var idView: UIView!
     @IBOutlet weak var imageViewCard: UIView!
